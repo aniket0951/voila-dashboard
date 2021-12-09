@@ -69,7 +69,7 @@ body{
      #second{display:none;}
      .container{
         border: 1px solid var(--unnamed-color-d6a2ff);
-        background: transparent linear-gradient(180deg, #663091 0%, #AC52F5 100%) 0% 0% no-repeat padding-box;
-        border: 1px solid #D6A2FF;
         opacity: 1;
      }
+   
+    

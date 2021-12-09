@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/homescreen.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <!-- scripts links -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <title>Voila</title>
+  </head>
+  <body>
+    <!-- side bar -->
+    <div class="sidebar" id="main">
+      <div class="logo_content">
+        <div class="logo">
+          <i class="bx bxl-android"></i>
+          <div class="logo_name">Voila</div>
+        </div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+
+      <ul class="nav_list">
+        <li>
+          <a href="#">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search....." />
+          </a>
+          <span class="tooltip">Search</span>
+        </li>
+
+        <li>
+          <a href="driverReq">
+            <i class='bx bx-user'></i>
+            <span class="links_name">Add Sub User</span>
+          </a>
+          <span class="tooltip">Add Sub User</span>
+        </li>
+
+        <li>
+          <a href="">
+            <i class="bx bx-restaurant"></i>
+            <span class="links_name">Restaurant Request</span>
+          </a>
+          <span class="tooltip">Res Request</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bxs-bell"></i>
+            <span class="links_name">Notification</span>
+          </a>
+          <span class="tooltip">Notification</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="links_name">Settings</span>
+          </a>
+          <span class="tooltip">Settings</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bxs-help-circle"></i>
+            <span class="links_name">Help</span>
+          </a>
+          <span class="tooltip">Help</span>
+        </li>
+      </ul>
+
+      <div class="profile_content">
+        <div class="profile">
+          <div class="profile_details">
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABF1BMVEX/////wg5yTwrknxX/wABqQgDOxbn/vgB/YQfpoxX/xRBrSgllRgmWaQ3pqBrDiBHjnABkOgDjmABuSQB1VA3///twTQBrRgD//PH/1mpjOQD/3IT/+eT/78T/9tr/yCj74azYpwxyVgZ5WAD/3Iz/2HX/zVD/0ljyyoz/7LvAtKX/5Z7/zD//56v/1GL/7b300Jn43bb658rvvnDpqTT71YL73Z/98Nz7z2jxxYDtumTx7uqyo5Dc1c3qrkOmlH2FakL7xj+BXyT/89D0z5b76tL9wiLstlrery2jkGiZg1T44r+xoYK/s5v82pK6rZOOdDmbhWnUzMGPd1Z9XzChjXTCgwDs5Neghl2feADd0sDRw62JbDyn7t4HAAAL30lEQVR4nNWdeVvbuBaHTSPjks7tJHHjhJ0phJ2UnVIotLQXLoUyU5hO6dDv/zmul2x2bOkcScdWfn/wPG0fnL6RdDYdyZZFrubc7NbGUqu9vDl/WR7zVZ7fXG63lja2Zuea9B9Pqpm1jcl5xhxfLNBYV+Gfor/enNxYmyn6PyqjmbXpTRaCjfEVorLN6ZHCnNmaLAdwArY4p+OUJ7dGgbI+Ox3QIeAGMH3K1my9aASe6mttJknXH0vWXjMVUhmvN5Ss/aZomGHNtfTg9SCn54pGGlR9a14jXhdyc6torq5mpnUO3yAjmzYhIpibJMHrQk4WPVnnVgj5IsaVIhnnlon5CmacaefAFzG2iwh26q2c+CLG6dyjgA1U2Kkuh+XrOz7NO7nyhYzz+S3HXCdoX8xp5TRVZ8tF8AVyyrM58NUn85+gA4yT5MP4qbABjMTKn2gBp4scwAjRmSbka24WDujL2SSLx2dz9oFZYozI4CyZMICRnCUKwBVzAH3EFe18zXkzZmhXzrzmxThnyBLsi5W1BnGzhYRpfGm1N1smLcG+HG3pxoaZgD7ihh5Ag7xEUnoQiw/UONLhGI0G1IFo8BQNVZ7YVgM01sh0VH5ZqikhGuomevIBS6Xajjzg7CgA+oi7soBzowHoIx7JATaNi0Xj6gGWShW5MNywbCKpAcBSZV8GcGV0AH3Ed3hAwx1hHNBfip+xgIab0SQg3qA2R2mKSlmbTaMJ0wBLlTMMoNnhdiqgj7gKB/w0ioD+UvwvFLBeLhqCp0zAUmkCum0zafIi5ACWKnswQKMdBQ8Q6jKMnqN8QOA8bRk8R0WApcqxGNBkOyoEBCVSBmcUAMBSSZhlGFy3AAEKaxr1ER9BXxW+sSE0M9ERi+4P9OdAAQXGZoZqjvpYyweHC2s7C4cLO/6Pg2VkQz8Y0J+nvCSDJq9nzuXdsIk7uruEQyIAufk+TXHN+ZgVaex+BH4gBpDrMZYJhpA5a5xJ8wa0IHGApcpVnkPIlvmmrQ74VpGAnEEkWIVOi8sXqCX6XtGAmYNIMITOgRDQsg74XyweMHMQ9aeF7C0A0LLe8j5YBjAjUdTvC9klCNCy/pedsEkBZvjEae1D6EDreyd/ZCFKAqZWpfRHpOwQCGhZ6xmIsoA+4vCH6E8qHDCgZb1IRZQHLFWGUwzteSHQzES6fp2CqACYkifqdxXOAoJwfHEYUQlw2GHoT5sczEmeE+95ElENcDiJIghnEICWtfg8gagIOGRr1vQ7w2UU4ZfncURlwFLtJvYBbf2+AhKw9XW7GENUB0ykiQTlGYQ3DPQ1IOwhagD0B3Ewq9E/ScfYAorwKSTsIGoBjFfd9E9SScIQUQ9gbJpS1BAlCQNEPYCxuiLFbhO7QxH+2SV8/vr3CU2EAztR+tMKOVsa6tVvuhAHnD7FfpqEP4wAnz3ThljqPp2mDoyOabqA+hB7eTDNbgw4/w3kx6V9QG2IvRSKZt/ewTQpvV8cBNSF2CvX0Gxro4KaKKTpAepCnIieTrQdw8Sl0r6uE4CaEDsLkSBkCwk/Igj/SgLqQewsRApvGCIiCBeHALUgdkpuVF16DuJguTcMqAOx081Hte2LKGOcuCmAWhCDp1Pt+6IC09NGGqE6YliPIjI0SI9fTSVURgxLGRtUyxABaNWn0glVESvBkSGqTkSMockmVEQMoxqqJigts1QZMSh9k5lSVFxqZxKqIfrGtEnWQoOJS9c5hEqIftxGdnwLtTPzzeUQqiD67oKuIxgTtbkej1ABsbZrLZAROvAzc++zDY0iYm2H8BwsIqjJCGk0IPoOcYmw3xJM+Iw/SRUQ/eyCsN8S7C94vkIRsXJMUdDvirWBhA9cS6qEWHlH0q3XFdDWnGSGbOqIlSvSU2rAQsYH8SqURzyz5ukAg9K+OPyun0NWoTTiPi3hmCNeig9wQClEomJpT+LARhDOKCNatIDiHIqTN+lBpCYUbpSOYyapDCI5ocicgg2pLCL1OhxzbriA98hJikcktqUiRPQcxSPSE3KLbjZ6jmIR93M4ec/rhb6QI0QgnpHGpaG4tgZvZ5CIflxKmFt0CHktCw+yhFBEP7cgP/bLJwTlTQqIfn5ImeOHuuQF33XZhQhF9HN86vvKBJ1D58IKjRpiZZts66krQSkDVMBQQKztEJ9OZ0y0BWXjcgssYm2X9soy1l4WJYgPDwrWRoxYOyK9TSg4+CRK8v1/f0E4ikG/yehUomQQg418urCNez52UOMSCQYQMdg/JHP5iA5TRDEKhxjuAVM5RAfTE/VBMskQIYb7+CTba8y5PES9iWL9okoRwIW9GAT9NMx5i79w8/23akN7phGd79Jcx2DO2KHcVZQn689syYHMQowOP2nNEJnT5hdmBAP5MCU3kOmInb42fdkFc9id6oX+J6eulNVJRez0Jr7RtBCZs6znpvv7h6pExpGG2Okv1dJvwhznQPKu2xSdnNr4FZmC2D1Iqm5qmPNxQRtepPEPU1jGYcTuKUvFqEbv8PV1cm4jV2QSsderr5QE+759gewtU+t/4+KABGLvvIXCQmROC3zhpJTef69iBjKO2D/PLdmeiA7NpFRHBXQxxIneQ+S69dmK9F3oSL1/gHuPAcSBs2tStRpUZ56q+J19GYiDN2HK+AtMY566ELFcD3HwbjqJTmjkWW1VrSOinA5i7Li6ROCGanJWF2q7P0KMX2+CHkPkEVF1oXapQsTYeXx8WJPzJMVN0xAxcfUeupTh0Dr6YSHL/7/9XknkqVhrijvlq0PYvpt/Er+PTINRhwv16G9cFN64Tfw+sh6FOiCqR99xyVT1R/IBuNJ37oZGcCRjSN5fQw/ApVCCPiAK3aMI7afhJ6BsTc7+PhCuxc9NSXpQ1f38TallYXaohuxMIFQeDL0RUacwxrSaOscQcU2umVNXiAzKvU59AsJhIC+f0SPxwZr+EA65ikjwHAq896lT8D5G9zHjEfBBRBza0qcfYMKsIUQMIuqMrzZB3YX7JfMR4EEswpTCjelU5hCCzSmjfEV9ts5hxjRzFQYCNtew4/ECdA8krJ7wvqY72Dwt//QWFxddO1/BAFPDmQEBo9Pyz9dpt5GYoIbACkJTjPLPF0WjpCstqYgLmCeWX/7HSETvQgQI9Bjll6UJIxGznX1fkJdXhpc3mojYSA+5ExLvtXVupzQP0fNAwZawp7Z3/aZxiNV/IYDC9zsO3C9qGCJsjgrnaewCVaMQgXM0EM+eJm6INQkRYke7yq5KDV2Baw6iLQjX4sp65UzKHb+mILq/MIBWvZyKmHqJsSGINrKEm+oyMm5pNgJxCugo+kq5mDbzGmoDEO0/sYAp72Hivaa2aMQGL6/PVCLL4F4kXjCiK84o0lSPOX7BTemFInqu5EZRc+C1b8Kr4ItEtBGuPq6+QQXcdV8cIt6M9tVteANd5l8U4pSwbsFT1CwFfFtBMYjVryqAUWUK/DqGIhCrEo4wri0H8b6J/BGrqHA7AxFzkUjeiDoALWunZiyi+hSNdGMqoqqR6WvXTEQ1NxHXUaViHKIHLazB1CyZhui60qFauupnZiE2Lri7hFI6RixGckRbKh8UCeM1iBGnNHmJpI4m4DOVEtG1tdqYQdWv4MNIh2j/0r8E+9ouHNHTE6hl62gfPFNJEBse2QztaRU8jPoRvepjHt1Y8GHUjZjHAEb6XAMyakX0qtf5tdPNnAGnqkZE+0JzmCbQDtA36kJsNLRlSmABp6oWRLd6W0S/Z/MYxKiO6E49Uvp4LuMehFER0a1+yXcBxnUEYVRBdKuPRfIFgsxVacRG8XyB6tsTIkgpRM+2b4taf0O6ORMw4hEb1YunQvrls3S0yh9IHKLrD58J0zOh3b0KBxKO6NrVx/GiYbJ0w4EEIXr+6D2OGzU7h7S7ul9Lr64KEf3Be3V+bzZepObOXqmWgslB9Bp21fv2ZIzpBKh5s3pVSWKmIXquD2f/uh0fJbqemjfbe2c+pw8aqI/oea7rNhq2bTcurk9HE25AzaPdne3Px++uzvZ9RJ/v1cWvD9++n359uv+RA9v/AXI4soetBnm8AAAAAElFTkSuQmCC"
+              alt=""
+            />
+            <div class="name_job">
+              <div class="name">{{ username }}</div>
+              <div class="job">Android Developer</div>
+            </div>
+          </div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card view Options and Navigation  -->
+    <div class="parentdiv">
+      <!-- card view -->
+      <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <div class="card">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4 style="align-items: center; margin-left: -15px;"><b>Total Rides</b></h4> 
+                  <p style="align-items: center; margin-left: -15px;">10000</p> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurant req -->
+        <div class="col-lg-3 col-md-3">
+            <div class="card">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4 style="align-items: center; margin-left: -15px;"><b>Pre-Conform Rides</b></h4> 
+                  <p style="align-items: center; margin-left: -15px;">3600</p> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Driver request  -->
+        <div class="col-lg-3 col-md-3">
+         <div class="card">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4 style="align-items: center; margin-left: -15px;"><b>Conform Rides</b></h4> 
+                  <p style="align-items: center; margin-left: -15px;">7200</p> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Verified customer card -->
+        <div class="col-lg-3 col-md-3">
+            <div class="card">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4 style="align-items: center; margin-left: -15px;"><b>Cancled Rides</b></h4> 
+                  <p style="align-items: center; margin-left: -15px;">6</p> 
+                </div>
+            </div>
+        </div>
+         
+      </div>
+    </div>
+
+    <!-- scripts -->
+    <script>
+      let btn = document.querySelector("#btn");
+      let sidebar = document.querySelector(".sidebar");
+      let searchBtn = document.querySelector(".bx-search");
+
+      btn.onclick = function () {
+        sidebar.classList.toggle("active");
+      };
+      searchBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+      };
+    </script>
+  </body>
+</html>

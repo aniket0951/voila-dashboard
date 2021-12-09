@@ -14,6 +14,7 @@ def validateCredentials(request):
     password = request.GET.get('userPassword')
     if email != "":
         if email == "aniket@gmail.com":
+            return render(request, 'home_screen.html')
             messages.success(request, "Please enter the email, Email is required to login..")
             return redirect('loginUser')
         else:
