@@ -336,5 +336,31 @@
   .sidebar.active ~ .parentdiv .text_res {
     padding: 3px;
   }
+  .parenttab{
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 50px;
+    align-items: center;
+  }
+  .parenttab .parent_form{
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .parent_form input{
+    width: 80%;
+  }
+  .parent_form .form_button{
+    background: #7135A1;
+    width: 80%;
+    color: white;
+  }
+  .parenttab .card .card-body .card-title{
+    text-align: center;
+    padding: 1.5%;
+    font-size: 30px;
+    
+  }
+  
+  
   
   
