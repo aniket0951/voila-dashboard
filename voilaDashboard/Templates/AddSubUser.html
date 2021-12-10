@@ -31,16 +31,13 @@
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"
     ></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-    <title>Voila</title>
+
+    <title>Add Sub User</title>
   </head>
   <body>
     <!-- side bar -->
@@ -63,8 +60,8 @@
         </li>
 
         <li>
-          <a href="{% url 'addSubUser' 'open' %}">
-            <i class='bx bx-user'></i>
+          <a href="addSubUser">
+            <i class="bx bx-user"></i>
             <span class="links_name">Add Sub User</span>
           </a>
           <span class="tooltip">Add Sub User</span>
@@ -121,103 +118,80 @@
     </div>
 
     <!-- Card view Options and Navigation  -->
-    <div class="parentdiv">
-      <!-- card view -->
-      <div class="row">
-        <div class="col-lg-3 col-md-3">
-            <div class="card">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4 style="align-items: center; margin-left: -15px;"><b>Total Rides</b></h4> 
-                  <p style="align-items: center; margin-left: -15px;">10000</p> 
-                </div>
+    <section class="parenttab">
+      <div class="card" style="width: 100%">
+        <div class="card-body">
+          <h5 class="card-title">Add Sub User</h5>
+          <form
+            class="parent_form"
+            action="{% url 'addSubUser' 'add' %}"
+            method="post"
+          >
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control inputs"
+                id="prevent_autofill"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value=""
+                name="userEmail"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
             </div>
-        </div>
 
-        <!-- Restaurant req -->
-        <div class="col-lg-3 col-md-3">
-            <div class="card">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4 style="align-items: center; margin-left: -15px;" class="text_res"><b>Pre-Conform Rides</b></h4> 
-                  <p style="align-items: center; margin-left: -15px;">3600</p> 
-                </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">User Name</label>
+              <input
+                class="form-control inputs"
+                placeholder="Enter User Name"
+                name="userName"
+              />
             </div>
-        </div>
 
-        <!-- Driver request  -->
-        <div class="col-lg-3 col-md-3">
-         <div class="card">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4 style="align-items: center; margin-left: -15px;"><b>Conform Rides</b></h4> 
-                  <p style="align-items: center; margin-left: -15px;">7200</p> 
-                </div>
+            <div class="form-group">
+              <label>Employee Id</label>
+              <input
+                class="form-control inputs"
+                id="password_fake"
+                placeholder="Enter Employee id"
+                value=""
+                name="employeeId"
+              />
             </div>
-        </div>
 
-        <!-- Verified customer card -->
-        <div class="col-lg-3 col-md-3">
-            <div class="card">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <h4 style="align-items: center; margin-left: -15px;"><b>Cancled Rides</b></h4> 
-                  <p style="align-items: center; margin-left: -15px;">6</p> 
-                </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input
+                class="form-control inputs"
+                placeholder="Enter Password"
+                value=""
+                name="password"
+              />
             </div>
+            <button
+              type="submit"
+              class="btn"
+              style="
+                width: 180px;
+                padding: 10px;
+                background-color: #9647d6;
+                color: white;
+                border-radius: 14px;
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+              "
+            >
+              Submit
+            </button>
+          </form>
         </div>
-         
       </div>
-    </div>
-
-    <div>
-      {% if messages %}
-      {% for message in messages %}
-        {% if message.tags == "error"%}
-        <script>
-            swal({
-            icon: 'warning',
-            text: '{{ message }}',  
-            buttons: {
-            cancel: "Cancel",
-            catch: {
-              text: "Try Again",
-              value: "catch",
-            }
-          },
-        })
-        .then((value) => {
-          switch (value) {
-            case "catch":
-              break;
-          }
-        });
-      </script>  
-        {% else %}
-        <script>
-          swal({
-          icon: 'https://raw.githubusercontent.com/aniket0951/Siloar-dashboard/aniket12/11/21/static/image/login_success.png',
-          text: '{{ message }}',  
-          buttons: {
-          cancel: "Cancel",
-          catch: {
-            text: "DONE",
-            value: "catch",
-          }
-        },
-      })
-      .then((value) => {
-        switch (value) {
-          case "catch":
-            break;
-        }
-      });
-    </script>        
-         {% endif %}
-      {% endfor %}
-     {% endif %}
-    </div>
-     
+    </section>
 
     <!-- scripts -->
     <script>
